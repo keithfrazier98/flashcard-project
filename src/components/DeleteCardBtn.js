@@ -1,5 +1,6 @@
 import React from "react";
 import { deleteCard, listCards } from "../utils/api";
+import { TrashOutline  } from "react-ionicons";
 
 
 function DeleteDeckBtn({ setCurrentCards }) {
@@ -12,20 +13,15 @@ function DeleteDeckBtn({ setCurrentCards }) {
   }
 
   return (
-    <div>
-      <div>
         <button
-          className="btn btn-danger"
+          className="btn btn-danger container"
           onClick={deleter}
           style={{ marginTop: "10px" }}
         >
-          <div className="container d-flex">
 
+              {<TrashOutline  color={"#00000"} />}
            
-          </div>
         </button>
-      </div>
-    </div>
   );
 }
 
