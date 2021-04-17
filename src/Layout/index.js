@@ -61,7 +61,7 @@ function Layout() {
             currentDeck={currentDeck}
             setCurrentCard={setCurrentCard}
             currentCard={currentCard}
-            setCurrrentDeck={setCurrentDeck}
+            setCurrentDeck={setCurrentDeck}
           />
         </Route>
 
