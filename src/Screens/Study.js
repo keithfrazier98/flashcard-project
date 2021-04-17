@@ -20,7 +20,7 @@ function Study({
   const [flip, setFlip] = useState(true);
 
   function handleFlip() {
-    setFlip(current => (current = !flip));
+    setFlip((current) => (current = !flip));
   }
 
   function handleClick() {
@@ -114,7 +114,7 @@ function Study({
                   >
                     next
                     <ChevronForwardOutline
-                    
+
                       color={"#00000"}
                       title={"change-card"}
                     />
