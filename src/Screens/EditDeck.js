@@ -44,7 +44,7 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
       >
         <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9" >
           <ol style={{ listStyle: "none", display: "flex" }}>
-            <li claclassNamess="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/">
                 Home
               </Link>

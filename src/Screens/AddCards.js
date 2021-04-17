@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
+import EditOrAddCard from "../components/EditOrAddCard";
 import { createCard, readDeck } from "../utils/api/index";
 
 function AddCards({ currentCard, setCurrentCard, currentDeck, setCurrentDeck }) {
@@ -9,6 +10,7 @@ function AddCards({ currentCard, setCurrentCard, currentDeck, setCurrentDeck }) 
 
   useEffect(() => {
     readDeck(deckId).then(setCurrentDeck)
+    console.log(3)
     setCurrentCard({
       ...currentCard,
       front: "Front of card",
@@ -70,40 +72,7 @@ function AddCards({ currentCard, setCurrentCard, currentDeck, setCurrentDeck }) 
       >
         <div className="card-body">
           <h3 className="card-title">{currentDeck.name}: Add Card</h3>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label for="front" style={{ width: "100%" }} className="form-label">
-                Front
-                <textarea
-                  rows="5"
-                  className="form-control"
-                  id="back"
-                  name="front"
-                  onChange={handleChange}
-                  value={currentCard.front}
-                />
-              </label>
-            </div>
-            <div className="mb-3">
-              <label for="back" style={{ width: "100%" }} className="form-label">
-                Back
-                <textarea
-                  rows="5"
-                  className="form-control"
-                  id="back"
-                  name="back"
-                  onChange={handleChange}
-                  value={currentCard.back}
-                />
-              </label>
-            </div>
-            <button onClick={goBack} type="button" className="btn btn-secondary">
-              Cancel
-            </button>
-            <button type="submit" className="btn btn-primary" style={marginLeft}>
-              Submit
-            </button>
-          </form>
+          <EditOrAddCard setCurrentDeck ={setCurrentDeck} setCurrentCard={setCurrentCard} currentCard={currentCard} currentDeck={currentDeck}/>
         </div>
       </div>
     </>

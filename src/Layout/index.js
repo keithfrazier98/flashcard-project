@@ -66,6 +66,7 @@ function Layout() {
             currentCard={currentCard}
             setCurrentCard={setCurrentCard}
             currentDeck={currentDeck}
+            setCurrentDeck={setCurrentDeck}
           />
         </Route>
         <Route path="/decks/:deckId/edit">

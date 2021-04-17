@@ -37,7 +37,7 @@ function View({
     }
 
     getDeck();
-  }, [currentCard]);
+  }, [currentCards]);
 
   function cardList() {
     let list = []
