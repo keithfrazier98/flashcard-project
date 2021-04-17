@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
 import { readDeck } from "../utils/api/index";
-import { ReloadOutline, ChevronForwardOutline } from "react-ionicons";
 import AddCardsBtn from "../components/AddCardsBtn";
 
 function Study({
@@ -15,12 +14,12 @@ function Study({
   setCurrentDeck,
 }) {
   const { deckId } = useParams();
-  const history = useHistory()
+  const history = useHistory();
 
   const [flip, setFlip] = useState(true);
 
   function handleFlip() {
-    setFlip(current => (current = !flip));
+    setFlip((current) => (current = !flip));
   }
 
   function handleClick() {
@@ -65,7 +64,10 @@ function Study({
         className="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9">
+        <nav
+          aria-label="breadcrum"
+          className="navbar navbar-light bg-light col-9"
+        >
           <ol style={{ listStyle: "none", display: "flex" }}>
             <li className="breadcrumb-item">
               <Link to="/">Home</Link>
@@ -99,11 +101,6 @@ function Study({
                     className="btn btn-secondary"
                   >
                     flip
-                    <ReloadOutline
-                      color={"#00000"}
-                      title={"turn-card"}
-                      style={{ marginLeft: "10px" }}
-                    />
                   </button>
                 ) : (
                   <button
@@ -112,10 +109,6 @@ function Study({
                     className="btn btn-primary"
                   >
                     next
-                    <ChevronForwardOutline
-                      color={"#00000"}
-                      title={"change-card"}
-                    />
                   </button>
                 )}
               </div>
@@ -132,7 +125,7 @@ function Study({
             </p>
             <div className="container d-flex">
               <div className="row">
-                <AddCardsBtn/>
+                <AddCardsBtn />
               </div>
             </div>
           </div>
