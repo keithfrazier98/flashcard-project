@@ -1,13 +1,22 @@
-import React from "react";
-import View from "./View";
-import Study from "./Study";
-import Delete from "./Delete";
+import React, { useEffect, useState } from "react";
+import ViewBtn from "./ViewBtn";
+import StudyBtn from "./StudyBtn";
+import DeleteDeckBtn from "./DeleteDeckBtn";
+import { listDecks } from "../utils/api/index";
 
-function Decks({ currentDecks, setCurrentDecks }) {
+function Decks({
+  currentDecks,
+  setCurrentDecks,
+  currentCards,
+  setCurrentCards,
+}) {
+  const [deckCards, setDeckCards] = useState(null);
+
   function createDeckCards(decks) {
     //map current decks to deckCards variable, creating a list of html elements to display on home screen
-    const deckCards = decks.map((deck) => {
-      const { id, name, description } = deck;
+    const deckCards = decks.map((deck, index) => {
+      console.log(deck);
+      const { id, name, description, cards } = deck;
       return (
         <div
           class="card"
@@ -15,18 +24,24 @@ function Decks({ currentDecks, setCurrentDecks }) {
           style={{ margin: "margin: 20px 20px 20px 20px " }}
         >
           <div class="card-body">
-            <h3 class="card-title">{name}</h3>
+            <div>
+              <h3 class="card-title">{name}</h3>
+              <h6>{cards.length} cards</h6>
+
+            </div>
+
             <div class="card-text">{description}</div>
             <div class="container">
               <div class="row">
-                <div class="card-link">{<View />}</div>
-                <div class="card-link">{<Study />}</div>
+                <div class="card-link">{<ViewBtn deck={deck} />}</div>
+                <div class="card-link">{<StudyBtn deck={deck} />}</div>
                 <div class="card-link">
                   {
                     // pass deck state to delete to handle deletion
-                    <Delete
+                    <DeleteDeckBtn
                       setCurrentDecks={setCurrentDecks}
                       currentDecks={currentDecks}
+                      index={index}
                     />
                   }
                 </div>
@@ -39,7 +54,10 @@ function Decks({ currentDecks, setCurrentDecks }) {
     return deckCards;
   }
 
-  const deckCards = createDeckCards(currentDecks);
+  useEffect(() => {
+    listDecks().then(createDeckCards).then(setDeckCards)
+  }, [currentDecks]);
+
   return <>{deckCards}</>;
 }
 

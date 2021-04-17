@@ -1,17 +1,25 @@
-import React, {useState} from "react"
-import {decks} from "../data/db.json"
-import Decks from "../components/Decks"
-import CreateDeck from "../components/CreateDeck"
+import React from "react";
+import Decks from "../components/Decks";
+import CreateDeckBtn from "../components/CreateDeckBtn";
 
-function Home () {
-
-    const [currentDecks, setCurrentDecks] = useState(decks)
-    return (
-        <>
-        <CreateDeck/>
-        <Decks setCurrentDecks = {setCurrentDecks} currentDecks = {currentDecks}/>
-        </>
-    )
+function Home({
+  currentDecks,
+  setCurrentDecks,
+  currentCards,
+  setCurrentCards,
+}) {
+  console.log(currentDecks);
+  return (
+    <>
+      <CreateDeckBtn />
+      <Decks
+        setCurrentDecks={setCurrentDecks}
+        currentDecks={currentDecks}
+        currentCards={currentCards}
+        setCurrentCards={setCurrentCards}
+      />
+    </>
+  );
 }
 
-export default Home
+export default Home;
