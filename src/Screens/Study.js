@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useRouteMatch, useHistory } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { readDeck } from "../utils/api/index";
 import { ReloadOutline, ChevronForwardOutline } from "react-ionicons";
 import AddCardsBtn from "../components/AddCardsBtn";
@@ -15,13 +15,12 @@ function Study({
   setCurrentDeck,
 }) {
   const { deckId } = useParams();
-  const { url } = useRouteMatch();
   const history = useHistory()
 
   const [flip, setFlip] = useState(true);
 
   function handleFlip() {
-    setFlip((current) => (current = !flip));
+    setFlip(current => (current = !flip));
   }
 
   function handleClick() {
@@ -61,43 +60,43 @@ function Study({
   }, [currentCard]);
 
   return (
-    <div class="d-flex flex-column">
+    <div className="d-flex flex-column">
       <div
-        class="container-fluid d-flex justify-content-center"
+        className="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9">
+        <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9">
           <ol style={{ listStyle: "none", display: "flex" }}>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
 
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to={`/decks/${deckId}`}>{currentDeck.name}</Link>
             </li>
-            <li class="breadcrumb-item active">Study</li>
+            <li className="breadcrumb-item active">Study</li>
           </ol>
         </nav>
       </div>
 
-      <div class="container-fluid d-flex justify-content-center">
+      <div className="container-fluid d-flex justify-content-center">
         <h2>{currentDeck.name}: Study</h2>
       </div>
-      <div class="container-fluid card d-flex justify-content-center col-9">
+      <div className="container-fluid card d-flex justify-content-center col-9">
         {currentCards.length > 2 ? (
-          <div class="card-body">
+          <div className="card-body">
             <h4>
               Card {currentCard} of {currentCards.length}
             </h4>
             <p>{flip ? cardInfo.front : cardInfo.back}</p>
 
-            <div class="container d-flex">
-              <div class="row">
+            <div className="container d-flex">
+              <div className="row">
                 {flip ? (
                   <button
                     type="btn"
                     onClick={handleFlip}
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                   >
                     flip
                     <ReloadOutline
@@ -110,7 +109,7 @@ function Study({
                   <button
                     type="btn"
                     onClick={handleClick}
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                   >
                     next
                     <ChevronForwardOutline
@@ -123,7 +122,7 @@ function Study({
             </div>
           </div>
         ) : (
-          <div class="card-body">
+          <div className="card-body">
             <h4>Not enough cards</h4>
             <p>
               You need at least 3 cards to study. There
@@ -131,8 +130,8 @@ function Study({
               {currentCards.length}
               {currentCards.length > 1 ? " cards " : " card"} in this deck.
             </p>
-            <div class="container d-flex">
-              <div class="row">
+            <div className="container d-flex">
+              <div className="row">
                 <AddCardsBtn/>
               </div>
             </div>

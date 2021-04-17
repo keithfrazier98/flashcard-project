@@ -33,9 +33,9 @@ function DeleteDeckBtn({ setCurrentDecks }) {
   }
 
   return (
-      <div class="d-flex">
+      <div className="d-flex">
         <button
-          class="btn btn-danger"
+          className="btn btn-danger"
           onClick={deleter}
         >
           <div>

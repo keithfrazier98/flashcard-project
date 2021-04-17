@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { readCard, updateCard } from "../utils/api/index";
-import { useParams, Link, useRouteMatch, useHistory } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 
 function EditCard({ currentCard, setCurrentCard, currentDeck }) {
   const { cardId, deckId } = useParams();
-  const { url } = useRouteMatch();
   const marginLeft = { margin: "0 0 0 10px" };
   const history = useHistory()
 
@@ -40,35 +39,35 @@ function EditCard({ currentCard, setCurrentCard, currentDeck }) {
   return (
     <>
       <div
-        class="container-fluid d-flex justify-content-center"
+        className="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9">
+        <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9">
           <ol style={{ listStyle: "none", display: "flex" }}>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
 
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to={`/decks/${deckId}`}>Deck {currentDeck.name}</Link>
             </li>
-            <li class="breadcrumb-item active">{`Edit Card ${cardId}`}</li>
+            <li claclassNamess="breadcrumb-item active">{`Edit Card ${cardId}`}</li>
           </ol>
         </nav>
       </div>
       <div
-        class="card col-9 container"
+        className="card col-9 container"
         style={{ margin: "margin: 20px 20px 20px 20px " }}
       >
-        <div class="card-body">
-          <h3 class="card-title">Edit Card</h3>
+        <div className="card-body">
+          <h3 className="card-title">Edit Card</h3>
           <form onSubmit={handleSubmit}>
-            <div class="mb-3">
-              <label for="front" style={{ width: "100%" }} class="form-label">
+            <div className="mb-3">
+              <label for="front" style={{ width: "100%" }} className="form-label">
                 Front
                 <textarea
                   rows="5"
-                  class="form-control"
+                  className="form-control"
                   id="back"
                   name="front"
                   onChange={handleChange}
@@ -76,16 +75,16 @@ function EditCard({ currentCard, setCurrentCard, currentDeck }) {
                 />
               </label>
             </div>
-            <div class="mb-3">
+            <div className="mb-3">
               <label
                 for="back"
                 style={{ width: "100%" }}
-                class="form-label"
+                className="form-label"
               >
                 Back
                 <textarea
                   rows="5"
-                  class="form-control"
+                  className="form-control"
                   id="back"
                   name="back"
                   onChange={handleChange}
@@ -93,10 +92,10 @@ function EditCard({ currentCard, setCurrentCard, currentDeck }) {
                 />
               </label>
             </div>
-            <button onClick={goBack} type="button" class="btn btn-secondary">
+            <button onClick={goBack} type="button" className="btn btn-secondary">
               Cancel
             </button>
-            <button type="submit" class="btn btn-primary" style={marginLeft}>
+            <button type="submit" className="btn btn-primary" style={marginLeft}>
               Submit
             </button>
           </form>

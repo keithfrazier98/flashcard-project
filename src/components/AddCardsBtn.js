@@ -9,7 +9,7 @@ function AddCardsBtn() {
       to={`/decks/${deckId}/cards/new`}
       type="button"
       style={{ margin: "0 0 0 10px" }}
-      class="btn btn-primary"
+      className="btn btn-primary"
     >
       <AddOutline color={"#00000"} title={"add-cards"} style={{marginRight:"10px"}} />
       Add Cards

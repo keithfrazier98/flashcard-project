@@ -33,8 +33,6 @@ function Layout() {
             <Home
               currentCards={currentCards}
               setCurrentCards={setCurrentCards}
-              currentDecks={currentDecks}
-              setCurrentDecks={setCurrentDecks}
             />
           </div>
         </Route>

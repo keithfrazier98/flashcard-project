@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useHistory, useRouteMatch } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { createDeck, listDecks } from "../utils/api/index";
 
 function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
@@ -16,7 +16,7 @@ function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
 
   function handleChange({ target }) {
     setDeck(
-      (prevState) =>
+      prevState =>
         (prevState = {
           ...deck,
           [target.name]: target.value,
@@ -48,32 +48,32 @@ function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
   return (
     <div>
       <div
-        class="container-fluid d-flex justify-content-center"
+        className="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9">
+        <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9">
           <ol style={{ listStyle: "none", display: "flex" }}>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
 
-            <li class="breadcrumb-item">Decks</li>
-            <li class="breadcrumb-item active">New</li>
+            <li className="breadcrumb-item">Decks</li>
+            <li className="breadcrumb-item active">New</li>
           </ol>
         </nav>
       </div>
 
-      <div class="container col-9">
+      <div className="container col-9">
         <div>
           <h2>Create Deck</h2>
         </div>
         <form onSubmit={handleSubmit}>
-          <div class="mb-3">
-            <label for="name" style={{ width: "100%" }} class="form-label">
+          <div className="mb-3">
+            <label for="name" style={{ width: "100%" }} className="form-label">
               Name
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="name"
                 name="name"
                 value={deck.name}
@@ -81,16 +81,16 @@ function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
               />
             </label>
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <label
               for="description"
               style={{ width: "100%" }}
-              class="form-label"
+              className="form-label"
             >
               Description
               <textarea
                 rows="5"
-                class="form-control"
+                className="form-control"
                 id="description"
                 name="description"
                 onChange={handleChange}
@@ -98,10 +98,10 @@ function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
               />
             </label>
           </div>
-          <button onClick={returnHome} type="button" class="btn btn-secondary">
+          <button onClick={returnHome} type="button" className="btn btn-secondary">
             Cancel
           </button>
-          <button type="submit" class="btn btn-primary" style={marginLeft}>
+          <button type="submit" className="btn btn-primary" style={marginLeft}>
             Submit
           </button>
         </form>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { readDeck } from "../utils/api/index";
-import { useParams, Link, useRouteMatch } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import DeleteCardBtn from "../components/DeleteCardBtn";
 import EditDeckBtn from "../components/EditDeckBtn";
 import StudyBtn from "../components/StudyBtn";
@@ -16,10 +16,7 @@ function View({
   setCurrentCards,
   currentCards,
 }) {
-  const navFont = { color: "white" };
   const { deckId } = useParams();
-  const margin = { margin: "0 0 0 10px", color: "white" };
-  const { url } = useRouteMatch();
   useEffect(() => {
     async function getDeck() {
       const result = await readDeck(deckId);
@@ -43,20 +40,20 @@ function View({
   }, [currentCard]);
 
   function cardList() {
-    let list = null
+    let list = []
     if (currentCards.length > 0) {
        list = currentCards.map((card) => {
         return (
           <div
             data-deckid={card.deckId}
             id={card.id}
-            class="container card col"
+            className="container card col"
             style={{ margin: "20px 0 20px 0 ", padding: "20px 0 20px 0" }}
           >
-            <div class="d-flex flex-row align-items-center">
-              <p class="col-5">{card.front}</p>
-              <p class="col-5">{card.back}</p>
-              <div class="d-flex flex-column col-2 justify-content-end">
+            <div className="d-flex flex-row align-items-center">
+              <p className="col-5">{card.front}</p>
+              <p className="col-5">{card.back}</p>
+              <div className="d-flex flex-column col-2 justify-content-end">
                 <div>
                   <EditCardBtn cardId={card.id} />
                 </div>
@@ -80,32 +77,32 @@ function View({
   return (
     <>
       <div
-        class="container-fluid d-flex justify-content-center"
+        className="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9">
+        <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9">
           <ol style={{ listStyle: "none", display: "flex" }}>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to="/">Home</Link>
             </li>
 
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               Decks
             </li>
-            <li class="breadcrumb-item active">{currentDeck.name}</li>
+            <li className="breadcrumb-item active">{currentDeck.name}</li>
           </ol>
         </nav>
       </div>
       <div
-        class="card container-fluid col-9"
+        className="card container-fluid col-9"
         style={{ margin: "margin: 20px 20px 20px 20px " }}
       >
-        <div class="card-body">
-          <h3 class="card-title">{currentDeck.name}</h3>
-          <div class="card-text">{currentDeck.description}</div>
-          <div class="container">
-            <div class="row" style={{ marginTop: "20px" }}>
-              <div class="containter col">
+        <div className="card-body">
+          <h3 className="card-title">{currentDeck.name}</h3>
+          <div className="card-text">{currentDeck.description}</div>
+          <div className="container">
+            <div className="row" style={{ marginTop: "20px" }}>
+              <div className="containter col">
                 <EditDeckBtn />
                 <StudyBtn />
                 <AddCardsBtn />
@@ -115,7 +112,7 @@ function View({
           </div>
         </div>
       </div>
-      <div class="container col-9" style={{ marginTop: "10px" }}>
+      <div className="container col-9" style={{ marginTop: "10px" }}>
         <h2>Cards</h2>
         <div>{list}</div>
       </div>

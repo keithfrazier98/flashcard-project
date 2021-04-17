@@ -12,7 +12,7 @@ function StudyBtn({ deck }) {
       <Link
       to={`/decks/${deck.id}/study`}
       type="button"
-      class="btn btn-primary"
+      className="btn btn-primary"
     >
       <LibraryOutline color={"#00000"} title={"study-deck"} style={{marginRight:"10px"}} />
       Study
@@ -23,7 +23,7 @@ function StudyBtn({ deck }) {
       <Link
         to={`/decks/${deckId}/study`}
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         style={{ marginLeft: "10px" }}
       >
         <LibraryOutline color={"#00000"} title={"study-deck"} style={{marginRight:"10px"}} />

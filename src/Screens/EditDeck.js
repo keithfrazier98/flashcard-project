@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useRouteMatch, useParams, useHistory } from "react-router-dom";
-import { listDecks, readDeck, updateDeck } from "../utils/api/index";
+import { readDeck, updateDeck } from "../utils/api/index";
 
 function EditDeck({ currentDeck, setCurrentDeck }) {
   const { url } = useRouteMatch();
@@ -24,7 +24,7 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
 
   function handleChange({ target }) {
     setCurrentDeck(
-      (prevState) =>
+      prevState =>
         (prevState = {
           ...currentDeck,
           [target.name]: target.value,
@@ -39,40 +39,40 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
   return (
     <div>
       <div
-        class="container-fluid d-flex justify-content-center"
+        className="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9" >
+        <nav aria-label="breadcrum" className="navbar navbar-light bg-light col-9" >
           <ol style={{ listStyle: "none", display: "flex" }}>
-            <li class="breadcrumb-item">
+            <li claclassNamess="breadcrumb-item">
               <Link to="/">
                 Home
               </Link>
             </li>
 
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to={url} >
               {currentDeck.name}
               </Link>
             </li>
-            <li class="breadcrumb-item active"> 
+            <li className="breadcrumb-item active"> 
               Edit
             </li>
           </ol>
         </nav>
       </div>
 
-      <div class="container col-9">
+      <div className="container col-9">
         <div>
           <h2>Edit Deck</h2>
         </div>
         <form onSubmit={handleSubmit}>
-          <div class="mb-3">
-            <label for="name" style={{ width: "100%" }} class="form-label">
+          <div claclassNamess="mb-3">
+            <label for="name" style={{ width: "100%" }} className="form-label">
               Name
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="name"
                 name="name"
                 value={currentDeck.name}
@@ -80,16 +80,16 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
               />
             </label>
           </div>
-          <div class="mb-3">
+          <div className="mb-3">
             <label
               for="description"
               style={{ width: "100%" }}
-              class="form-label"
+              className="form-label"
             >
               Description
               <textarea
                 rows="5"
-                class="form-control"
+                className="form-control"
                 id="description"
                 name="description"
                 onChange={handleChange}
@@ -97,10 +97,10 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
               />
             </label>
           </div>
-          <button onClick={goBack} type="button" class="btn btn-secondary">
+          <button onClick={goBack} type="button" className="btn btn-secondary">
             Cancel
           </button>
-          <button type="submit" class="btn btn-primary" style={marginLeft}>
+          <button type="submit" className="btn btn-primary" style={marginLeft}>
             Submit
           </button>
         </form>

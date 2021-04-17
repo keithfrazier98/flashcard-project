@@ -5,8 +5,6 @@ import CreateDeckBtn from "../components/CreateDeckBtn";
 function Home({
   currentDecks,
   setCurrentDecks,
-  currentCards,
-  setCurrentCards,
 }) {
   return (
     <>
@@ -14,8 +12,6 @@ function Home({
       <Decks
         setCurrentDecks={setCurrentDecks}
         currentDecks={currentDecks}
-        currentCards={currentCards}
-        setCurrentCards={setCurrentCards}
       />
     </>
   );
