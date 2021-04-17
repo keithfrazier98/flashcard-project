@@ -53,7 +53,7 @@ function View({
             <div className="d-flex flex-row align-items-center">
               <p className="col-5">{card.front}</p>
               <p className="col-5">{card.back}</p>
-              <div className="d-flex flex-column col-2 justify-content-end">
+              <div className="container col-2">
                 <div>
                   <EditCardBtn cardId={card.id} />
                 </div>
