@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import { PencilOutline } from "react-ionicons";
 
 
 function EditCardBtn({ cardId }) {

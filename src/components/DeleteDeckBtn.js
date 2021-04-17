@@ -1,7 +1,6 @@
 import React from "react";
 import { deleteDeck, listDecks } from "../utils/api/index";
 import { useRouteMatch, useParams, useHistory } from "react-router-dom";
-import { TrashOutline } from "react-ionicons";
 
 //delete component to return delete button and handle deletion of deck
 
@@ -39,7 +38,6 @@ function DeleteDeckBtn({ setCurrentDecks }) {
           onClick={deleter}
         >
           <div>
-            {<TrashOutline color={"#00000"} title="delete-deck" />}
           </div>
         </button>
       </div>
