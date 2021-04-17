@@ -22,6 +22,7 @@ function DeleteDeckBtn({ setCurrentCards }) {
               {<TrashOutline  color={"#00000"} />}
            
         </button>
+
   );
 }
 

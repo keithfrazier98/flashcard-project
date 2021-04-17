@@ -8,6 +8,7 @@ function EditCardBtn({ cardId }) {
   return (
     <Link to={`${url}/cards/${cardId}/edit`} className="btn btn-secondary container">
       <PencilOutline  color={"#00000"} title="edit-card" />
+
     </Link>
   );
 }
