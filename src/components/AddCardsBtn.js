@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AddOutline } from "react-ionicons";
 
 function AddCardsBtn() {
-  const { url } = useRouteMatch();
+  const {deckId} = useParams()
   return (
     <Link
-      to={`${url}/cards/new`}
+      to={`/decks/${deckId}/cards/new`}
       type="button"
       style={{ margin: "0 0 0 10px" }}
       class="btn btn-primary"

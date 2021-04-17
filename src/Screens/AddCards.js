@@ -17,7 +17,7 @@ function AddCards({currentCard, setCurrentCard, currentDeck}) {
     if (window.confirm("Are you sure you would like to add this card?")) {
       createCard(deckId,currentCard);
       alert("Your new card was added to the deck!")
-      setCurrentCard(prevState => prevState ={...currentCard, front: "Front of card", back:"Back of card"})
+      //setCurrentCard(prevState => prevState ={...currentCard, front: "Front of card", back:"Back of card"})
     } else {
         window.open(`/decks/${deckId}`, "_self")
     }

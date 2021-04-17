@@ -91,7 +91,7 @@ function View({
             </li>
 
             <li class="breadcrumb-item">
-              <Link to={url}>Decks</Link>
+              Decks
             </li>
             <li class="breadcrumb-item active">{currentDeck.name}</li>
           </ol>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useRouteMatch } from "react-router-dom";
 import { readDeck } from "../utils/api/index";
-import { ReloadOutline } from "react-ionicons";
+import { ReloadOutline, ChevronForwardOutline } from "react-ionicons";
+import AddCardsBtn from "../components/AddCardsBtn";
 
 function Study({
   cardInfo,
@@ -97,9 +98,12 @@ function Study({
                     onClick={handleFlip}
                     class="btn btn-secondary"
                   >
-                   
-                    flip
-                    <ReloadOutline color={"#00000"} title={"flip-card"} style={{marginLeft:"10px"}}/>
+                    Flip
+                    <ReloadOutline
+                      color={"#00000"}
+                      title={"flip-card"}
+                      style={{ marginLeft: "10px" }}
+                    />
                   </button>
                 ) : (
                   <button
@@ -108,6 +112,10 @@ function Study({
                     class="btn btn-primary"
                   >
                     Next
+                    <ChevronForwardOutline
+                      color={"#00000"}
+                      title={"next-card"}
+                    />
                   </button>
                 )}
               </div>
@@ -115,7 +123,7 @@ function Study({
           </div>
         ) : (
           <div class="card-body">
-            <h4>Not enough cards.</h4>
+            <h4>Not enough cards</h4>
             <p>
               You need at least 3 cards to study. There
               {currentCards.length > 1 ? " are " : " is "}
@@ -124,13 +132,7 @@ function Study({
             </p>
             <div class="container d-flex">
               <div class="row">
-                <button
-                  type="btn"
-                  style={{ margin: "0 0 0 10px" }}
-                  class="btn btn-primary"
-                >
-                  Add Card
-                </button>
+                <AddCardsBtn/>
               </div>
             </div>
           </div>

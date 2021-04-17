@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useRouteMatch, useParams } from "react-router-dom";
-import { LibraryOutline } from "react-ionicons";
+import { LibraryOutline } from "react-ionicons"
 
 function StudyBtn({ deck }) {
   // studyBtn is called from two different places, so depending on the screen it will have access to the deckID in a different way
