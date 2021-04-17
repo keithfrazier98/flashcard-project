@@ -1,6 +1,5 @@
 import React from "react";
 import { deleteCard, listCards } from "../utils/api";
-import { TrashOutline } from "react-ionicons";
 
 
 function DeleteDeckBtn({ setCurrentCards }) {
@@ -22,7 +21,6 @@ function DeleteDeckBtn({ setCurrentCards }) {
         >
           <div className="container d-flex">
 
-              {<TrashOutline color={"#00000"} width="50%" />}
            
           </div>
         </button>
