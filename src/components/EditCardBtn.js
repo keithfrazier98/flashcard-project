@@ -7,7 +7,7 @@ function EditCardBtn({ cardId }) {
   const { url } = useRouteMatch();
   return (
     <Link to={`${url}/cards/${cardId}/edit`} className="btn btn-secondary container">
-      <PencilOutline color={"#00000"} title="edit-card" />
+      <PencilOutline color={"#00000"} title="edit-card" width="50%" />
     </Link>
   );
 }
