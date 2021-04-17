@@ -4,7 +4,6 @@ import {createCard} from "../utils/api/index"
 
 function AddCards({currentCard, setCurrentCard, currentDeck}) {
     const marginLeft = { margin: "0 0 0 10px" };
-    const {url} = useRouteMatch()
     const {deckId} = useParams()
 
     useEffect(()=> {
@@ -17,6 +16,7 @@ function AddCards({currentCard, setCurrentCard, currentDeck}) {
 
     if (window.confirm("Are you sure you would like to add this card?")) {
       createCard(deckId,currentCard);
+      alert("Your new card was added to the deck!")
       setCurrentCard(prevState => prevState ={...currentCard, front: "Front of card", back:"Back of card"})
     } else {
         window.open(`/decks/${deckId}`, "_self")

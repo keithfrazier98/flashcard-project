@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useRouteMatch } from "react-router-dom";
 import { readDeck } from "../utils/api/index";
+import { ReloadOutline } from "react-ionicons";
 
 function Study({
   cardInfo,
@@ -12,7 +13,6 @@ function Study({
   currentDeck,
   setCurrentDeck,
 }) {
-  
   const { deckId } = useParams();
   const { url } = useRouteMatch();
 
@@ -24,12 +24,12 @@ function Study({
 
   function handleClick() {
     if (currentCard < currentCards.length) {
-      setCurrentCard((prevState) => (prevState = prevState + 1))
-      setFlip((prevState=> prevState = !flip))
+      setCurrentCard((prevState) => (prevState = prevState + 1));
+      setFlip((prevState) => (prevState = !flip));
     } else {
       if (window.confirm("Do you want to reset the deck?")) {
         setCurrentCard((prevState) => (prevState = 1));
-        setFlip(true)
+        setFlip(true);
       } else {
         window.open("/");
       }
@@ -97,7 +97,9 @@ function Study({
                     onClick={handleFlip}
                     class="btn btn-secondary"
                   >
+                   
                     flip
+                    <ReloadOutline color={"#00000"} title={"flip-card"} style={{marginLeft:"10px"}}/>
                   </button>
                 ) : (
                   <button

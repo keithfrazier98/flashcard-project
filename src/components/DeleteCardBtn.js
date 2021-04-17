@@ -13,14 +13,21 @@ function DeleteDeckBtn({ setCurrentCards }) {
   }
 
   return (
-    <button
-      class="btn btn-danger"
-      onClick={deleter}
-      style={{ marginTop: "10px" }}
-    >
-      Delete
-      {<TrashOutline color={"#00000"} height="250px" width="250px" />}
-    </button>
+    <div>
+      <div>
+        <button
+          class="btn btn-danger"
+          onClick={deleter}
+          style={{ marginTop: "10px" }}
+        >
+          <div class="container d-flex">
+
+              {<TrashOutline color={"#00000"} width="50%" />}
+           
+          </div>
+        </button>
+      </div>
+    </div>
   );
 }
 

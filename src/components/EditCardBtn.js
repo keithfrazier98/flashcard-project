@@ -1,12 +1,13 @@
 import React from "react";
-import {Link, useRouteMatch} from "react-router-dom"
+import { Link, useRouteMatch } from "react-router-dom";
+import { PencilOutline } from "react-ionicons";
 
 
-function EditCardBtn({cardId}) {
+function EditCardBtn({ cardId }) {
   const { url } = useRouteMatch();
   return (
-    <Link to={`${url}/cards/${cardId}/edit`} class="btn btn-secondary">
-      Edit
+    <Link to={`${url}/cards/${cardId}/edit`} class="btn btn-secondary container">
+      <PencilOutline color={"#00000"} title="edit-card" width="50%" />
     </Link>
   );
 }

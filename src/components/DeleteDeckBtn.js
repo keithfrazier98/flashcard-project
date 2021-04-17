@@ -1,9 +1,11 @@
 import React from "react";
 import { deleteDeck, listDecks } from "../utils/api/index";
 import { useRouteMatch, useParams } from "react-router-dom";
+import { TrashOutline } from "react-ionicons";
+
 //delete component to return delete button and handle deletion of deck
 
-function DeleteDeckBtn({setCurrentDecks}) {
+function DeleteDeckBtn({ setCurrentDecks }) {
   //create newDecks variable in Delete scope, to be set by deleteDeck and returned by Delete
   const { path } = useRouteMatch();
   const { deckId } = useParams();
@@ -31,9 +33,16 @@ function DeleteDeckBtn({setCurrentDecks}) {
   }
 
   return (
-    <button type="button" onClick={deleter} class="btn btn-danger">
-      Delete
-    </button>
+      <div class="d-flex">
+        <button
+          class="btn btn-danger"
+          onClick={deleter}
+        >
+          <div>
+            {<TrashOutline color={"#00000"} title="delete-deck" />}
+          </div>
+        </button>
+      </div>
   );
 }
 

@@ -51,7 +51,7 @@ function EditCard({ currentCard, setCurrentCard, currentDeck }) {
             </li>
 
             <li class="breadcrumb-item">
-              <Link to={url}>Deck {currentDeck.name}</Link>
+              <Link to={`/decks/${deckId}`}>Deck {currentDeck.name}</Link>
             </li>
             <li class="breadcrumb-item active">{`Edit Card ${cardId}`}</li>
           </ol>

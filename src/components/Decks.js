@@ -23,8 +23,8 @@ function Decks({
           id={`${id}`}
           style={{ margin: "margin: 20px 20px 20px 20px " }}
         >
-          <div class="card-body">
-            <div>
+          <div class="card-body container">
+            <div class="d-flex justify-content-between">
               <h3 class="card-title">{name}</h3>
               <h6>{cards.length} cards</h6>
 
@@ -32,7 +32,7 @@ function Decks({
 
             <div class="card-text">{description}</div>
             <div class="container">
-              <div class="row">
+              <div class="row" style={{marginTop:"10px"}}>
                 <div class="card-link">{<ViewBtn deck={deck} />}</div>
                 <div class="card-link">{<StudyBtn deck={deck} />}</div>
                 <div class="card-link">

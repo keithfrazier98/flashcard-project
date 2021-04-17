@@ -17,8 +17,9 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
 
     if (window.confirm("Are you sure you would like to edit this deck?")) {
       updateDeck(currentDeck);
+      goBack()
     } else {
-        window.open(`/decks/${deckId}`, "_self")
+        goBack()
     }
   }
 
