@@ -8,7 +8,6 @@ function Home({
   currentCards,
   setCurrentCards,
 }) {
-  console.log(currentDecks);
   return (
     <>
       <CreateDeckBtn />

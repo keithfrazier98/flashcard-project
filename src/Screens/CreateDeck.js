@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { createDeck, listDecks } from "../utils/api/index";
 
 function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
-  const navFont = { color: "white" };
   const marginLeft = { margin: "0 0 0 10px" };
-
-  const { url } = useRouteMatch();
+  const history = useHistory();
+  const initialDeck = {
+    description: "Enter the description of your new deck.",
+    name: "Enter a name for your new deck.",
+  }
 
   useEffect(() => {
-    setDeck({
-      description: "Enter the description of your new deck.",
-      name: "Enter a name for your new deck.",
-    });
+    setDeck( initialDeck);
   }, []);
 
   function handleChange({ target }) {
@@ -29,22 +28,22 @@ function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
     event.preventDefault();
     const name = event.target.children[0].children[0].children[0].value;
     const description = event.target.children[1].children[0].children[0].value;
-    const id = currentDecks.length + 1;
     const deckId = currentDecks.length + 1;
+    const newDeck = {
+      name: name,
+      description: description,
+      deckId: deckId,
+      cards: [],
+    };
     
-
-    const newDeck = { name: name, description: description, deckId: deckId, cards: [] };
-    /*setCurrentDecks([
-      ...currentDecks,
-      { id: id, name: name, description: description, deckId: deckId },
-    ]);
-    */
     createDeck(newDeck);
     listDecks().then(setCurrentDecks);
+    history.push(`/decks/${deckId}`)
+    setDeck(initialDeck)
   }
 
   function returnHome() {
-    window.open("/", "_self");
+    history.push("/");
   }
   return (
     <div>
@@ -52,20 +51,14 @@ function CreateDeck({ setCurrentDecks, currentDecks, deck, setDeck }) {
         class="container-fluid d-flex justify-content-center"
         style={{ marginBottom: "20px" }}
       >
-        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9" >
+        <nav aria-label="breadcrum" class="navbar navbar-light bg-light col-9">
           <ol style={{ listStyle: "none", display: "flex" }}>
             <li class="breadcrumb-item">
-              <Link to="/">
-                Home
-              </Link>
+              <Link to="/">Home</Link>
             </li>
 
-            <li class="breadcrumb-item">
-              Decks
-            </li>
-            <li class="breadcrumb-item active"> 
-              New
-            </li>
+            <li class="breadcrumb-item">Decks</li>
+            <li class="breadcrumb-item active">New</li>
           </ol>
         </nav>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { deleteDeck, listDecks } from "../utils/api/index";
-import { useRouteMatch, useParams } from "react-router-dom";
+import { useRouteMatch, useParams, useHistory } from "react-router-dom";
 import { TrashOutline } from "react-ionicons";
 
 //delete component to return delete button and handle deletion of deck
@@ -9,8 +9,8 @@ function DeleteDeckBtn({ setCurrentDecks }) {
   //create newDecks variable in Delete scope, to be set by deleteDeck and returned by Delete
   const { path } = useRouteMatch();
   const { deckId } = useParams();
+  const history = useHistory()
   function deleter(event) {
-    console.log(deckId);
 
     const id = event.target.closest(".card").id;
 
@@ -19,7 +19,7 @@ function DeleteDeckBtn({ setCurrentDecks }) {
       try {
         if (path === "/decks/:deckId") {
           deleteDeck(deckId);
-          window.open("/", "_same");
+          history.push("/");
         } else {
           deleteDeck(id);
         }

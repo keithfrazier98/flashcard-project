@@ -59,7 +59,7 @@ function Layout() {
           />
         </Route>
         <Route path={"/decks/:deckId/cards/new"}>
-          <AddCards currentDeck={currentDeck} setCurrentCard={setCurrentCard} currentCard={currentCard}/>
+          <AddCards currentDeck={currentDeck} setCurrentCard={setCurrentCard} currentCard={currentCard} setCurrrentDeck={setCurrentDeck}/>
         </Route>
 
         <Route path="/decks/:deckId/cards/:cardId/edit">

@@ -15,7 +15,6 @@ function Decks({
   function createDeckCards(decks) {
     //map current decks to deckCards variable, creating a list of html elements to display on home screen
     const deckCards = decks.map((deck, index) => {
-      console.log(deck);
       const { id, name, description, cards } = deck;
       return (
         <div

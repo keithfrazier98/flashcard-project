@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useRouteMatch } from "react-router-dom";
+import { useParams, Link, useRouteMatch, useHistory } from "react-router-dom";
 import { readDeck } from "../utils/api/index";
 import { ReloadOutline, ChevronForwardOutline } from "react-ionicons";
 import AddCardsBtn from "../components/AddCardsBtn";
@@ -16,6 +16,7 @@ function Study({
 }) {
   const { deckId } = useParams();
   const { url } = useRouteMatch();
+  const history = useHistory()
 
   const [flip, setFlip] = useState(true);
 
@@ -32,7 +33,7 @@ function Study({
         setCurrentCard((prevState) => (prevState = 1));
         setFlip(true);
       } else {
-        window.open("/");
+        history.push("/");
       }
     }
   }
@@ -72,7 +73,7 @@ function Study({
             </li>
 
             <li class="breadcrumb-item">
-              <Link to={url}>{currentDeck.name}</Link>
+              <Link to={`/decks/${deckId}`}>{currentDeck.name}</Link>
             </li>
             <li class="breadcrumb-item active">Study</li>
           </ol>
@@ -98,10 +99,10 @@ function Study({
                     onClick={handleFlip}
                     class="btn btn-secondary"
                   >
-                    Flip
+                    flip
                     <ReloadOutline
                       color={"#00000"}
-                      title={"flip-card"}
+                      title={"turn-card"}
                       style={{ marginLeft: "10px" }}
                     />
                   </button>
@@ -111,10 +112,10 @@ function Study({
                     onClick={handleClick}
                     class="btn btn-primary"
                   >
-                    Next
+                    next
                     <ChevronForwardOutline
                       color={"#00000"}
-                      title={"next-card"}
+                      title={"change-card"}
                     />
                   </button>
                 )}

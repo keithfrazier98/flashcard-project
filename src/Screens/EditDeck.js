@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { Link, useRouteMatch, useParams } from "react-router-dom";
+import { Link, useRouteMatch, useParams, useHistory } from "react-router-dom";
 import { listDecks, readDeck, updateDeck } from "../utils/api/index";
 
 function EditDeck({ currentDeck, setCurrentDeck }) {
   const { url } = useRouteMatch();
   const { deckId } = useParams();
-  const navFont = { color: "white" };
   const marginLeft = { margin: "0 0 0 10px" };
-
+  const history = useHistory()
   useEffect(() => {
     readDeck(deckId).then(setCurrentDeck);
   }, []);
@@ -31,11 +30,10 @@ function EditDeck({ currentDeck, setCurrentDeck }) {
           [target.name]: target.value,
         })
     );
-    console.log(currentDeck);
   }
 
   function goBack() {
-    window.open(`/decks/${deckId}`, "_self");
+    history.push(`/decks/${deckId}`, "_self");
   }
 
   return (

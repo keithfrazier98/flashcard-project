@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { readCard, updateCard } from "../utils/api/index";
-import { useParams, Link, useRouteMatch } from "react-router-dom";
+import { useParams, Link, useRouteMatch, useHistory } from "react-router-dom";
 
 function EditCard({ currentCard, setCurrentCard, currentDeck }) {
   const { cardId, deckId } = useParams();
   const { url } = useRouteMatch();
   const marginLeft = { margin: "0 0 0 10px" };
-
+  const history = useHistory()
 
   useEffect(() => {
     readCard(cardId).then(setCurrentCard);
@@ -30,11 +30,10 @@ function EditCard({ currentCard, setCurrentCard, currentDeck }) {
           [target.name]: target.value,
         })
     );
-    console.log(currentDeck);
   }
 
   function goBack() {
-    window.open(`/decks/${deckId}`, "_self");
+    history.push(`/decks/${deckId}`, "_self");
   }
 
 

@@ -46,7 +46,6 @@ function View({
     let list = null
     if (currentCards.length > 0) {
        list = currentCards.map((card) => {
-        //console.log(card);
         return (
           <div
             data-deckid={card.deckId}
