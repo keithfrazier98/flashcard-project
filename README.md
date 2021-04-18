@@ -7,3 +7,6 @@ but when connecting to qualified the test suite doesnt execute because qualified
 the ionicon package (as it does not have access to the node_modules directory).
 
 The qualified assessment was submitted without the use of icons then they were added again after submission. 
+
+Deployed with vercel :
+https://project-flashcards-qualified-1-5j18q4hvz-keithfrazier98.vercel.app/
